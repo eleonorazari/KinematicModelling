@@ -1,9 +1,8 @@
-# Purpose: some useful functions to deal with matrixes.
-# These routines are already implemented in python (linalg)
-# But here they are faster because there are less controls 
-# (especially in matrix_inv it could probably be better to 
-# add the option of determinant = 0).
-
+# Purpose: determinant and inverse of a 3x3 matrix, plus 
+# other matrix operations.
+# These routines are already implemented in python (linalg), 
+# however here they rely on exact formulae (inverse and determinant of 3x3 matrix) 
+# and should therefore give more accurate results.
 
 import numpy as np
 
@@ -13,9 +12,7 @@ def matrix_det(A):
 
 	"""
 	Returns the determinant of A, a 3x3 matrix.
-	You can use also scipy.linalg.det.
-	Might check which is faster.
-
+	
 	Parameters
    	----------
 

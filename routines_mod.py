@@ -1,11 +1,10 @@
-### Purpose: compute the likelihood function that we want to minimize.
+### Purpose: compute the likelihood function to be minimized.
 ### The functions defined here are (detailed description are 
 ### present  at the beginnin of each function):
 ### 1) _like();
 ### 2) Ulike;
 ### 3) g_func;  
 ### 4) optimizer.
-### E.Z., 04-07-2016.
 
 import numpy as np
 from pygaia.astrometry.vectorastrometry import phaseSpaceToAstrometry, normalTriad
@@ -21,7 +20,7 @@ _A = auKmYearPerSec  ### km*yr/s
 def matrix_det_inv(mat):
     """
     Calculate the determinant and inverse of a 3x3 matrix. This code is specialized for the 3x3 case and
-    hopefully faster than standard python functions.
+    hopefully faster/more accurate than standard python functions.
 
     NOTE that no precautions are taken to ensure numerically stable calculations. The code is just a
     straightforward implementation of the formal mathematical inverse of a 3x3 matrix.
@@ -64,8 +63,9 @@ def matrix_det_inv(mat):
 def _like(init_par, alpha, delta, obs, sigma_obs, ccoef, N):
 	"""
 	Estimate the likelihood function for every set of observations.
-	Then, estimate the function U(init_par) that needs to be minimized 
-	to find the best fit to the parameters.
+	Then, estimate the function U(init_par) to be minimized 
+	(more details on the definition of the likelihood function and U can be found 
+	in Lindegren+00 and related papers)
 
 	Parameters:
 	------------
@@ -81,8 +81,9 @@ def _like(init_par, alpha, delta, obs, sigma_obs, ccoef, N):
 	Returns:
 	-----------
 	g - An array of values with the values of g_i(theta) for each star in the group, see eq. 19 in Lindegren+2000;
-	U(init_par) - The function in Eq. (18) of Lindegren+2000, i.e. the function that needs to be minimized.
+	U(init_par) - The function in Eq. (18) of Lindegren+2000, i.e. the function to be minimized.
 	"""
+	
 	
 	plx_mod, v, sigma_v = init_par[:-4], init_par[-4:-1], init_par[-1] 
 	plx_obs, mualpha_obs, mudelta_obs = obs[:, 0], obs[:, 1], obs[:, 2]
@@ -180,6 +181,7 @@ def optimizer(grad, method, init_par, alpha, delta, obs, sigma_obs, ccoeff, N):
 	
 	Parameters:
 	------------
+	grad, method - parameters to specify which minimization method to use. See example.
 	init_par - Set of initial values for: 1) All the parallaxes [mas];
 				       2) The cluster centroid velocity  [vx_0, vy_0, vz_0] [km/s];
 				       3) The cluster velocity dispersion, sigma_v [km/s];
@@ -190,7 +192,7 @@ def optimizer(grad, method, init_par, alpha, delta, obs, sigma_obs, ccoeff, N):
 	N - the number of stars;
 	
 	Returns: 
-	res.x - An array containing the the parameters resulting from the minimization.
+	res.x - An array containing the best-fit parameters resulting from the minimization.
 
 	"""
 

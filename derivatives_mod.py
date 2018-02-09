@@ -1,6 +1,4 @@
-### Purpose: compute the gradient (grad) and the hessian (Nmatrix, hess) of the likelihood function. 
-### Note: these functions work but they  could/should be written better to 
-### avoid repetitions and to increase the code speed.
+### Purpose: compute the gradient and the hessian of the likelihood function. 
 ### The mathematical formulae implemented here can be found in the appendix of
 ### Lindegren et al. (2000).
 
@@ -257,8 +255,6 @@ def Nmatrix(init_par, alpha, delta, obs, sigma_obs, ccoef, N):
 		 	    invD[2, 0, :]*cprime_pi[2, :]*cprime_pi[0, :] + invD[2, 1, :]*cprime_pi[2, :]*cprime_pi[1, :] + invD[2, 2, :]*cprime_pi[2, :]*cprime_pi[2, :]	
 	
 	
-	#hess_diag_pi_2[:] = np.sum(0.5*(invD[1, 1, :]**2. + 2.*invD[1, 2, :]**2. + invD[2, 2, :]**2.)*de_dpi[:]*de_dpi[:]) ### Check if it's with or without sum: without!
-	# So correct formula is below.
 	hess_diag_pi_2[:] = (0.5*(invD[1, 1, :]**2. + 2.*invD[1, 2, :]**2. + invD[2, 2, :]**2.)*de_dpi[:]*de_dpi[:])
 	hess_diag_pi[:] = hess_diag_pi_1[:] + hess_diag_pi_2[:]	
 
@@ -345,9 +341,9 @@ def Nmatrix(init_par, alpha, delta, obs, sigma_obs, ccoef, N):
 
 def hessian(init_par, alpha, delta, obs,  sigma_obs, ccoef, N):
 
-	#### In this function, I return the hessian of the function U, which is what I am minimizing
-	#### When I want to estimate the errors on the quantities, I should actually use the function above,
-	### remembering that I have to multiply first by '-1', invert, and then multiply again by '-1' 
+	#### In this function, I return the hessian of the function U, which is the function that I am minimizing.
+	#### To estimate the errors on the quantities, the function above (Nmatrix) should be used,
+	###  multiplied first by '-1', inverted, and then multiplied again by '-1'. 
 
 	hessL = Nmatrix(init_par, alpha, delta, obs,  sigma_obs, ccoef, N)
 	hessL = -1.*hessL

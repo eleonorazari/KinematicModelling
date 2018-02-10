@@ -10,6 +10,8 @@ One application of this version of the method can be found in Bravi et al. (2018
 The routines depend on the following python packages:
 1. PyGaia
 2. astropy
-3. numpy, scipy.
+3. numpy, scipy;
+4. emcee
+5 coner.
 
 

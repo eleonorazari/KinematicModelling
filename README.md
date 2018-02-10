@@ -11,7 +11,7 @@ The routines depend on the following python packages:
 1. PyGaia
 2. astropy
 3. numpy, scipy;
-4. emcee
-5 coner.
+4. emcee;
+5. coner.
 
 

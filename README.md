@@ -20,10 +20,12 @@ The routines depend on the following python packages:
 
 
 ## Notes
-The notebooks provide an example for a possible application of the routines in routines_mod.py and derivatives_mod.py.
-The space motion is derived for the nearby open cluster IC 2602.
+The notebooks provide an example for a possible application of the routines ('file_name'.py).
+The space motion is derived for the nearby open cluster IC 2602 (Bravi et al., 2018) 
+and for the Hyades cluster (Reino et al., 2018).
 
-The steps of the procedure are explained in the notebooks (I hope clearly enough!).
+The steps of the procedure are explained in the notebooks.
+
 
 
 

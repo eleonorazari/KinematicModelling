@@ -3,7 +3,11 @@
 
 Python modules used to estimate centre velocity, velocity dispersion and parallaxes for open clusters, based on Lindegren et al. (2000, http://adsabs.harvard.edu/abs/2000A%26A...356.1119L). 
 
-One application of this version of the method can be found in Bravi et al. (2018).
+
+Together with Stella Reino, we also developed a procedure that includes radial velocitie. More details on this modified version 
+of the code can be found in Reino et al. (2018, subm., minor revision).
+
+The version of the method *without* the inclusion of radial velocities was applied in Bravi et al. (2018) (http://adsabs.harvard.edu/abs/2018arXiv180301908B).
 
 ## Prerequisites
 

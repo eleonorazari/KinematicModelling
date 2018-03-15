@@ -5,9 +5,9 @@ Python modules used to estimate centre velocity, velocity dispersion and paralla
 
 
 Together with Stella Reino, we also developed a procedure that includes radial velocities. More details on this modified version 
-of the code can be found in Reino et al. (2018, subm., minor revision) and in the notebook exampleReino18.ipynb.
+of the code can be found in Reino et al. (2018, subm., minor revision) and in the notebook Example_RV/exampleReino18.ipynb.
 
-The version of the method *without* the inclusion of radial velocities was applied in Bravi et al. (2018) (http://adsabs.harvard.edu/abs/2018arXiv180301908B). An example of application can be found in example_KinematicModelling.ipynb.
+The version of the method *without* the inclusion of radial velocities was applied in Bravi et al. (2018) (http://adsabs.harvard.edu/abs/2018arXiv180301908B). An example of application can be found in example/example_KinematicModelling.ipynb.
 
 ## Prerequisites
 

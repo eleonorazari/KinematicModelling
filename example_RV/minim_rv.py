@@ -33,7 +33,8 @@ def _like4(init_par, alpha, delta, plx_obs, mualpha_obs, mudelta_obs, vrad_obs, 
 	Returns:
 	-----------
 	g - values of g_i(theta) for the i-th star, see eq. 19 in Lindegren+2000;
-	U(init_par) - The function in Eq. (18) of Lindegren+2000, for the i-th star.
+	U(init_par) 
+
 	"""
 	
 	plx_mod, v, sigma_v = init_par[i], init_par[-4:-1], init_par[-1]  
